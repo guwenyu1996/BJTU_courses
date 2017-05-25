@@ -7,16 +7,16 @@
 using namespace std;
 
 #define  UCHAR  unsigned char
-const int MULTIPLE = 8;       // ×Ö½ÚÁ÷³¤¶ÈÊÇÎ»Á÷µÄ8±¶
-const int FIX_VAL = 0X01;     // Çó&×¨ÓÃÌØ¶¨Öµ
-const int g_BinArr[MULTIPLE] = {128,64,32,16,8,4,2,1}; //2µÄ´ÎÃİ
+const int MULTIPLE = 8;       // å­—èŠ‚æµé•¿åº¦æ˜¯ä½æµçš„8å€
+const int FIX_VAL = 0X01;     // æ±‚&ä¸“ç”¨ç‰¹å®šå€¼
+const int g_BinArr[MULTIPLE] = {128,64,32,16,8,4,2,1}; //2çš„æ¬¡å¹‚
 const unsigned char mask = 1; // Bit mask
 
 /*
-**@brief ×Ö½ÚÁ÷×ªÎªÎ»Á÷
-**@param [in]puchByte,×Ö½ÚÁ÷;[in]iByteLen£¬×Ö½ÚÁ÷³¤¶È; 
-   [in&out]puchBit,Î»Á÷; [in&out]iBitLen,Î»Á÷³¤¶È
-**@return ¿Õ
+**@brief å­—èŠ‚æµè½¬ä¸ºä½æµ
+**@param [in]puchByte,å­—èŠ‚æµ;[in]iByteLenï¼Œå­—èŠ‚æµé•¿åº¦; 
+   [in&out]puchBit,ä½æµ; [in&out]iBitLen,ä½æµé•¿åº¦
+**@return ç©º
 */
 void byte_to_bit(const UCHAR *puchByte, const int& iByteLen, UCHAR *puchBit, int *pBitLen)
 {
@@ -38,10 +38,10 @@ void byte_to_bit(const UCHAR *puchByte, const int& iByteLen, UCHAR *puchBit, int
 
 
 /*
-**@brief Î»Á÷×ªÎª×Ö½ÚÁ÷
-**@param [in]puchBit,Î»Á÷;[in]iBitLen£¬Î»Á÷³¤¶È; 
-   [in&out]puchByte,×Ö½ÚÁ÷ [in&out]pByteLen,×Ö½ÚÁ÷³¤¶È
-**@return ¿Õ
+**@brief ä½æµè½¬ä¸ºå­—èŠ‚æµ
+**@param [in]puchBit,ä½æµ;[in]iBitLenï¼Œä½æµé•¿åº¦; 
+   [in&out]puchByte,å­—èŠ‚æµ [in&out]pByteLen,å­—èŠ‚æµé•¿åº¦
+**@return ç©º
 */
 void bit_to_byte(const UCHAR *puchBit, const int& iBitLen, UCHAR *puchByte, int* pByteLen)
 {
@@ -50,10 +50,10 @@ void bit_to_byte(const UCHAR *puchBit, const int& iBitLen, UCHAR *puchByte, int*
 	int iBitInByte = 0;
 	for(int i = 0; i < iBitLen; i++)
 	{
-		iByteNo = i/MULTIPLE;    //×Ö½ÚĞòºÅ
-		iBitInByte = i%MULTIPLE; //×Ö½ÚÀïµÄ±ÈÌØĞòºÅ(0-7)
+		iByteNo = i/MULTIPLE;    //å­—èŠ‚åºå·
+		iBitInByte = i%MULTIPLE; //å­—èŠ‚é‡Œçš„æ¯”ç‰¹åºå·(0-7)
  
-		puchByte[iByteNo] += puchBit[i]*g_BinArr[iBitInByte];  //ÀÛ¼ÆÇóºÍ
+		puchByte[iByteNo] += puchBit[i]*g_BinArr[iBitInByte];  //ç´¯è®¡æ±‚å’Œ
   
 		//cout << "iByteNo =:" << iByteNo << "\t iBitInByte = " << iBitInByte \
 		//<< "\t puchByte[iByteNo] = " << puchByte[iByteNo] << endl;
@@ -64,14 +64,14 @@ void bit_to_byte(const UCHAR *puchBit, const int& iBitLen, UCHAR *puchByte, int*
 /*
 UCHAR* byte_to_bit()
 {
-	const UCHAR uchByte[] = "0123456789abcdef";        //Ô­Ê¼×Ö½ÚÁ÷  
-	int iByteLen = sizeof(uchByte)/sizeof(UCHAR) - 1;  //Ô­Ê¼×Ö½ÚÁ÷³¤¶È  
-	int iBitLen = MULTIPLE*iByteLen;                   //±ÈÌØÁ÷³¤¶È  
+	const UCHAR uchByte[] = "0123456789abcdef";        //åŸå§‹å­—èŠ‚æµ  
+	int iByteLen = sizeof(uchByte)/sizeof(UCHAR) - 1;  //åŸå§‹å­—èŠ‚æµé•¿åº¦  
+	int iBitLen = MULTIPLE*iByteLen;                   //æ¯”ç‰¹æµé•¿åº¦  
 	UCHAR *puchBit = new UCHAR[iBitLen];  
 	memset(puchBit, 0, iBitLen); 
 
 	int iBitLenX = 0;  
-	byte_to_bit(uchByte, iByteLen, puchBit, &iBitLenX);  //×Ö½Ú×ª»¯Îª±ÈÌØÁ÷  
+	byte_to_bit(uchByte, iByteLen, puchBit, &iBitLenX);  //å­—èŠ‚è½¬åŒ–ä¸ºæ¯”ç‰¹æµ  
 
 	return puchBit;
 }*/
