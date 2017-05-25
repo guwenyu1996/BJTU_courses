@@ -3,7 +3,7 @@
 class Decode
 {
 public:
-	Decode(void);      // ²»Òªµ÷Õâ¸ö£¡£¡£¡
+	Decode(void);      // Â²Â»Ã’ÂªÂµÃ·Ã•Ã¢Â¸Ã¶Â£Â¡Â£Â¡Â£Â¡
 	Decode(const char* filename);
 	~Decode(void);
 
