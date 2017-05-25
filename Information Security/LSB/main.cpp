@@ -24,14 +24,14 @@ void bitConverterExample()
 void testByte()
 {
 	BYTE temp = 4;
-	int iByteLen = sizeof(temp)/sizeof(BYTE);  //Ô­Ê¼×Ö½ÚÁ÷³¤¶È  
+	int iByteLen = sizeof(temp)/sizeof(BYTE);  //åŸå§‹å­—èŠ‚æµé•¿åº¦  
 
 	BYTE *tempBit = new BYTE[8*iByteLen];  
 	memset(tempBit, 0, 8*iByteLen); 
-	int tempBitLenX = 0;  // ×Ö½ÚÁ÷³¤¶È
-	byte_to_bit(&temp, iByteLen, tempBit, &tempBitLenX);  //×Ö½Ú×ª»¯Îª±ÈÌØÁ÷
+	int tempBitLenX = 0;  // å­—èŠ‚æµé•¿åº¦
+	byte_to_bit(&temp, iByteLen, tempBit, &tempBitLenX);  //å­—èŠ‚è½¬åŒ–ä¸ºæ¯”ç‰¹æµ
 
-	cout << "×Ö½ÚÁ÷×ª»¯¹ıµÄÎ»Á÷Îª: " << endl;  
+	cout << "å­—èŠ‚æµè½¬åŒ–è¿‡çš„ä½æµä¸º: " << endl;  
 	for (int i = 0; i < tempBitLenX; i++)  
 		printf("%0x",tempBit[i]);  
 	printf("\n");
@@ -41,7 +41,7 @@ void testByte()
 	int iByteLenX = 0; 
 	bit_to_byte(tempBit, tempBitLenX, tempByte, &iByteLenX); 
 
-	cout << "²âÊÔÎ»Á÷×ª»¯¹ıµÄ×Ö½ÚÁ÷Îª: " << endl;  
+	cout << "æµ‹è¯•ä½æµè½¬åŒ–è¿‡çš„å­—èŠ‚æµä¸º: " << endl;  
   
 	for (int i = 0; i < iByteLen; i++)  
 	{  
@@ -49,7 +49,7 @@ void testByte()
 	}  
 	printf("\n");  
 
-	cout << "Î»Á÷×ªÎª³ÉµÄ×Ö½ÚÁ÷Îª: " << tempByte << endl;  
+	cout << "ä½æµè½¬ä¸ºæˆçš„å­—èŠ‚æµä¸º: " << tempByte << endl;  
 
 }
 
@@ -84,7 +84,7 @@ void testUchar()
 	int iByteLenX = 0; 
 	bit_to_byte(tempBit, tempBitLen, tempByte, &iByteLenX); 
 
-	cout << "²âÊÔÎ»Á÷×ª»¯¹ıµÄ×Ö½ÚÁ÷Îª: " << endl;  
+	cout << "æµ‹è¯•ä½æµè½¬åŒ–è¿‡çš„å­—èŠ‚æµä¸º: " << endl;  
   
 	for (int i = 0; i < iByteLen; i++)  
 	{  
@@ -92,7 +92,7 @@ void testUchar()
 	}  
 	printf("\n");  
 
-	cout << "Î»Á÷×ªÎª³ÉµÄ×Ö½ÚÁ÷Îª: " << tempByte << endl;  
+	cout << "ä½æµè½¬ä¸ºæˆçš„å­—èŠ‚æµä¸º: " << tempByte << endl;  
 }
 
 
