@@ -3,7 +3,7 @@
 // Project Description :    LSB隐藏信息
 // ===============================================================================
 // Class Name          :    Dncode
-// Class Description   :    
+// Class Description   :    Extract message.
 // Author              :    guwenyu
 // Create Time         :    2017/5/23 18:56:28
 // ===============================================================================
